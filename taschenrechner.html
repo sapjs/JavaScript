@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<!-- Tabelle mit JS
+1 2 3 +
+4 5 6 C
+7 8 9 =
+. 0 MS MR
+Rechner
+Feld für Anzeige der angegebenen Zahl oder Ergebnis -->
+<head>
+	<title>Taschenrechner</title>
+	<meta charset="utf-8">
+	<script>
+	</script>
+	<style>
+  table{
+    border: solid 1px #AAA;
+  }
+  td {
+    border: solid 1px #AAA;
+    border-collapse:separate;
+  }
+	</style>
+</head>
+<body>
+
+  <script>
+  /* Tabelle befüllen mit Array oder 2-dimensionalen Array
+Array mit new Array oder mit var ar = [...] anlegen
+oben oder unten script ist egal. oben kein zugriff auf elem die unten sind
+ladezeit in 1 datai ist egal
+wenn applikation, keine Website, gehe ich davon aus, das app ohne js eh nichts tut.
+
+scripts die nicht relevant f seite kann man unten einfügen, zb google analytics.
+
+vorteil unten: ich hab auf DOM nicht zugriff, wenn es noch nicht geladen ist. =>
+onLoad, dh mache wenn ganzes dokument geladen.
+Gültigketsbereich (scope) einer var ist in der Fkt, nicht im script
+
+
+Datentypen in JS:
+zahlen, strings, bool, undefined, null
+
+this ist im Eventlistener immer das Objekt, auf dem das Event passiert ist.
+  */
+
+  var myTable = document.createElement('table');
+  //myTable.setAttribute("style", "border: solid 1px #000000;");
+  for (var i = 0; i<4; i++){
+      var myTr = document.createElement('tr');
+        for (var j = 0; j<4; j++){
+
+            var myTd = document.createElement('td');
+            var tdId = i + "" + j; // i + "_" + j;
+            myTd.setAttribute("id", tdId);
+            //myTd.setAttribute("style", "border: solid 1px #000000; border-collapse:separate;");
+
+          	var textnode = document.createTextNode(tdId); // int / string ?
+          	myTd.appendChild(textnode);
+
+            myTr.appendChild(myTd);
+        }
+      myTable.appendChild(myTr);
+  }
+  console.log(myTable);
+  document.body.appendChild(myTable);
+
+  </script>
+
+</body>
+</html>
